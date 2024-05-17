@@ -1,0 +1,10 @@
+@using AppMvc.Net.Models
+@model List<ProductModel> //Model duoc truyen den View() la 1 danh sach
+<h1>Danh sách sản phẩm</h1>
+<ul>
+    @foreach (var product in Model) {
+        <li>
+            @product.Name
+        </li>
+    }
+</ul>

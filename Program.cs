@@ -1,3 +1,8 @@
+using System.Net;
+using App.ExtendMethods;
+using AppMvc.Net.Services;
+using Microsoft.AspNetCore.Components.Web;
+
 namespace AppMvc.Net;
 
 public class Program
@@ -12,6 +17,10 @@ public class Program
         //Add RazorPage
         builder.Services.AddRazorPages();
 
+        builder.Services.AddSingleton<ProductService>();
+
+        builder.Services.AddSingleton<PlanetService>();
+
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
@@ -24,17 +33,27 @@ public class Program
 
         app.UseHttpsRedirection();
         app.UseStaticFiles();
+        
+        app.AddStatusCodePage(); //Tuy bien response loi tu 400-499
 
         app.UseRouting();
 
         app.UseAuthorization();
 
         app.UseEndpoints(endpoints => {
+            endpoints.MapAreaControllerRoute(
+                name: "product",
+                pattern: "{controller}/{action=Index}/{id?}",
+                areaName: "ProductManage"
+            );
+
             app.MapControllerRoute(
             name: "default",
             pattern: "{controller=Home}/{action=Index}/{id?}");
             
             endpoints.MapRazorPages();
+
+
         });
 
         app.Run();

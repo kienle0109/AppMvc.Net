@@ -1,15 +1,15 @@
-using AppMvc.Net.Models.Contacts;
+using App.Models.Blog;
+using App.Models.Contacts;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 
-namespace razorweb.models
+namespace App.Models 
 {
+    // App.Models.AppDbContext
     public class AppDbContext : IdentityDbContext<AppUser>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
-          
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
@@ -20,8 +20,8 @@ namespace razorweb.models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-             foreach (var entityType in modelBuilder.Model.GetEntityTypes())
+            
+            foreach (var entityType in modelBuilder.Model.GetEntityTypes())
             {
                 var tableName = entityType.GetTableName();
                 if (tableName.StartsWith("AspNet"))
@@ -29,7 +29,15 @@ namespace razorweb.models
                     entityType.SetTableName(tableName.Substring(6));
                 }
             }
-        } 
+
+            modelBuilder.Entity<Category>( entity => {
+                entity.HasIndex(c => c.Slug);
+            });
+
+        }
+
         public DbSet<Contact> Contacts { get; set; }
+
+        public DbSet<Category> Categories { get; set; }
     }
 }

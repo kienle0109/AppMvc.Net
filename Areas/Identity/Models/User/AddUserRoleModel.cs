@@ -1,12 +1,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
-using AppMvc.Net.Models;
+using App.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using razorweb.models;
 
-namespace AppMvc.Net.Areas.Identity.Models.UserViewModels
+namespace App.Areas.Identity.Models.UserViewModels
 {
   public class AddUserRoleModel
   {

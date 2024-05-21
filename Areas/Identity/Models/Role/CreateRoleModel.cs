@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace AppMvc.Net.Areas.Identity.Models.RoleViewModels
+namespace App.Areas.Identity.Models.RoleViewModels
 {
   public class CreateRoleModel
     {

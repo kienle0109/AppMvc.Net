@@ -1,9 +1,10 @@
-namespace AppMvc.Net.Models
+namespace App.Models
 {
     public class ProductModel
     {
         public int Id { get; set; }
-        public string Name {set; get;}
-        public int Price {set; get;}
+        public string Name { get; set; }
+
+        public double Price { get; set; }
     }
 }

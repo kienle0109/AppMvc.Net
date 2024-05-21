@@ -7,20 +7,18 @@ using System.Security.Claims;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
-using AppMvc.Net.Areas.Identity.Models.ManageViewModels;
-using AppMvc.Net.Areas.Identity.Models.AccountViewModels;
-using AppMvc.Net.ExtendMethods;
-using AppMvc.Net.Models;
-using AppMvc.Net.Utilities;
+using App.Areas.Identity.Models.AccountViewModels;
+using App.ExtendMethods;
+using App.Models;
+using App.Utilities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
-using razorweb.models;
 
-namespace AppMvc.Net.Areas.Identity.Controllers
+namespace App.Areas.Identity.Controllers
 {
     [Authorize]
     [Area("Identity")]

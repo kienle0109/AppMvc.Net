@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Routing;
 
-namespace AppMvc.Net.Menu {
+namespace App.Menu {
     public class AdminSidebarService
     {
         private readonly IUrlHelper UrlHelper;

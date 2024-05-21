@@ -3,7 +3,7 @@
 
 using System.ComponentModel.DataAnnotations;
 
-namespace AppMvc.Net.Areas.Identity.Models.AccountViewModels
+namespace App.Areas.Identity.Models.AccountViewModels
 {
     public class VerifyAuthenticatorCodeViewModel
     {

@@ -5,16 +5,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using AppMvc.Net.Models;
-using ContactModel = AppMvc.Net.Models.Contacts.Contact;
+using App.Models;
+using ContactModel = App.Models.Contacts.Contact;
 using Microsoft.AspNetCore.Authorization;
-using AppMvc.Net.Data;
-using razorweb.models;
+using App.Data;
 
 namespace App.Areas.Contact.Controllers
 {
     [Area("Contact")]
-    [Authorize(Roles = RoleName.Administrator)] //Quyen truy cap
+    [Authorize(Roles = RoleName.Administrator)]
     public class ContactController : Controller
     {
         private readonly AppDbContext _context;

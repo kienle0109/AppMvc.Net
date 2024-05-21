@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Identity;
 
-namespace AppMvc.Net.ExtendMethods
+namespace App.ExtendMethods
 {
     public static class ModelStateExtend
     {

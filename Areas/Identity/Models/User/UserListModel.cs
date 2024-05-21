@@ -1,8 +1,7 @@
 using System.Collections.Generic;
-using AppMvc.Net.Models;
-using razorweb.models;
+using App.Models;
 
-namespace AppMvc.Net.Areas.Identity.Models.UserViewModels
+namespace App.Areas.Identity.Models.UserViewModels
 {
         public class UserListModel
         {

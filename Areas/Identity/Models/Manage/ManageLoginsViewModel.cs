@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 
-namespace AppMvc.Net.Areas.Identity.Models.ManageViewModels
+namespace App.Areas.Identity.Models.ManageViewModels
 {
     public class ManageLoginsViewModel
     {

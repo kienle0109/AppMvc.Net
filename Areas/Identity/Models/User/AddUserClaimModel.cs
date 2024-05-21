@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace AppMvc.Net.Areas.Identity.Models.UserViewModels
+namespace App.Areas.Identity.Models.UserViewModels
 {
   public class AddUserClaimModel
   {

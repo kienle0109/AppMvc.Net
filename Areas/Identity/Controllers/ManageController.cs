@@ -3,17 +3,14 @@
 
 using System.Linq;
 using System.Threading.Tasks;
-using AppMvc.Net.Areas.Identity.Models.ManageViewModels;
-using AppMvc.Net.ExtendMethods;
-using AppMvc.Net.Areas.Identity.Models.ManageViewModels;
-using AppMvc.Net.ExtendMethods;
-using AppMvc.Net.Models;
-using AppMvc.Net.Services;
+using App.Areas.Identity.Models.ManageViewModels;
+using App.ExtendMethods;
+using App.Models;
+using App.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using razorweb.models;
 
 namespace App.Areas.Identity.Controllers
 {
@@ -66,7 +63,7 @@ namespace App.Areas.Identity.Controllers
                 profile = new EditExtraProfileModel()
                 {
                     BirthDate = user.BirthDate,
-                    HomeAdress = user.HomeAddress,
+                    HomeAdress = user.HomeAdress,
                     UserName = user.UserName,
                     UserEmail = user.Email,
                     PhoneNumber = user.PhoneNumber,
@@ -381,7 +378,7 @@ namespace App.Areas.Identity.Controllers
             var model = new EditExtraProfileModel()
             {
                 BirthDate = user.BirthDate,
-                HomeAdress = user.HomeAddress,
+                HomeAdress = user.HomeAdress,
                 UserName = user.UserName,
                 UserEmail = user.Email,
                 PhoneNumber = user.PhoneNumber,
@@ -393,7 +390,7 @@ namespace App.Areas.Identity.Controllers
         {
             var user = await GetCurrentUserAsync();
 
-            user.HomeAddress = model.HomeAdress;
+            user.HomeAdress = model.HomeAdress;
             user.BirthDate = model.BirthDate;
             await _userManager.UpdateAsync(user);
 

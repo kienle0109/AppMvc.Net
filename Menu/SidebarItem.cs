@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AppMvc.Net.Menu {
+namespace App.Menu {
 
     public enum SidebarItemType
     {

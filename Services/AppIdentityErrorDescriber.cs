@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 
-namespace AppMvc.Net.Services
+namespace App.Services
 {
   public class AppIdentityErrorDescriber : IdentityErrorDescriber
   {

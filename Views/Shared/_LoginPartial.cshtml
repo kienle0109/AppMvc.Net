@@ -1,6 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@using AppMvc.Net.Models
-@using razorweb.models
+@using App.Models
 
 @inject SignInManager<AppUser> SignInManager
 @inject UserManager<AppUser> UserManager
@@ -10,10 +9,10 @@
     <form asp-area="Identity" asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm" class="navbar-right">
         <ul class="nav navbar-nav navbar-right">
             <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="Identity"  asp-controller="Manage" asp-action="Index" title="Manage">Xin chào @UserManager.GetUserName(User)!</a>
+                <a class="nav-link text-light" asp-area="Identity"  asp-controller="Manage" asp-action="Index" title="Manage">Xin chào @UserManager.GetUserName(User)!</a>
             </li>
             <li class="nav-item">
-                <button type="submit" class="btn btn-link navbar-btn navbar-link text-dark">Đăng xuất</button>
+                <button type="submit" class="btn btn-link navbar-btn navbar-link text-light">Đăng xuất</button>
             </li>
         </ul>
     </form>
@@ -22,10 +21,10 @@ else
 {
     <ul class="nav navbar-nav navbar-right">
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-controller="Account" asp-action="Register">Đăng ký</a>
+            <a class="nav-link text-light" asp-area="Identity" asp-controller="Account" asp-action="Register">Đăng ký</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-controller="Account" asp-action="Login">Đăng nhập</a>
+            <a class="nav-link text-light" asp-area="Identity" asp-controller="Account" asp-action="Login">Đăng nhập</a>
         </li>
     </ul>
 }

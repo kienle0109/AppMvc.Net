@@ -5,18 +5,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using AppMvc.Net.Areas.Identity.Models.ManageViewModels;
-using AppMvc.Net.Areas.Identity.Models.RoleViewModels;
-using AppMvc.Net.Data;
-using AppMvc.Net.ExtendMethods;
-using AppMvc.Net.Models;
-using AppMvc.Net.Services;
+using App.Areas.Identity.Models.ManageViewModels;
+using App.Areas.Identity.Models.RoleViewModels;
+using App.Data;
+using App.ExtendMethods;
+using App.Models;
+using App.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using razorweb.models;
 
 namespace App.Areas.Identity.Controllers
 {

@@ -1,4 +1,4 @@
-namespace AppMvc.Net.Data
+namespace App.Data
 {
     public class RoleName 
     {

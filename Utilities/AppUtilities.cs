@@ -2,7 +2,7 @@ using System;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
-namespace AppMvc.Net.Utilities
+namespace App.Utilities
 {
   public class AppUtilities
   {

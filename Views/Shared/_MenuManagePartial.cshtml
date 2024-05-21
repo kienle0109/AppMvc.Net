@@ -1,4 +1,14 @@
-<div class="dropdown">
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService authorizaitonService
+
+@{
+    var result = await authorizaitonService.AuthorizeAsync(this.User, "ViewManageMenu");
+}
+
+@if (result.Succeeded)
+{
+
+    <div class="dropdown">
         <a class="btn btn-outline-danger dropdown-toggle" href="#" id="managedropdownmenu" data-bs-toggle="dropdown">
             Manage
         </a>
@@ -6,5 +16,15 @@
             <a class="dropdown-item" asp-action="Index" asp-controller="DbManage" asp-area="Database">
                 Database
             </a>
+            <a class="dropdown-item" asp-action="Index" asp-controller="Contact" asp-area="Contact">
+                Quản lý liên hệ
+            </a>
+            <a class="dropdown-item" asp-action="Index" asp-controller="Role" asp-area="Identity">
+                Quản lý Role
+            </a>
+            <a class="dropdown-item" asp-action="Index" asp-controller="User" asp-area="Identity">
+                Quản lý thành viên
+            </a>
         </div>
     </div>
+}

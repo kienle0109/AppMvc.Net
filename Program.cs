@@ -1,8 +1,11 @@
 using System.Net;
 using App.ExtendMethods;
+using AppMvc.Net.Data;
+using AppMvc.Net.Menu;
 using AppMvc.Net.Services;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using razorweb.models;
 
@@ -30,7 +33,9 @@ public class Program
             options.UseSqlServer(connectString);
         });
 
-        builder.Services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<AppDbContext>();
+        builder.Services.AddIdentity<AppUser, IdentityRole>()
+                    .AddEntityFrameworkStores<AppDbContext>()
+                    .AddDefaultTokenProviders();
 
         // Truy cập IdentityOptions
         builder.Services.Configure<IdentityOptions>(options =>
@@ -83,6 +88,25 @@ public class Program
                             options.CallbackPath = "/dang-nhap-tu-facebook";
                         });
 
+        //Dang ky dich vu gui email
+        builder.Services.AddOptions();
+        var mailsetting = builder.Configuration.GetSection("MailSettings");
+        builder.Services.Configure<MailSettings>(mailsetting);
+        builder.Services.AddTransient<IEmailSender, SendMailService>(); //dk dvu gui email co ten la emailsender
+
+        builder.Services.AddTransient<IActionContextAccessor, ActionContextAccessor>();
+        builder.Services.AddTransient<AdminSidebarService>();
+
+
+        //DK dvu identityerrordescriber bang dvu appidentityerrordescriber do ta tu dinh nghia lai
+        builder.Services.AddSingleton<IdentityErrorDescriber, AppIdentityErrorDescriber>();
+
+        builder.Services.AddAuthorization(options => {
+            options.AddPolicy("ViewManageMenu", builder => {
+                builder.RequireAuthenticatedUser();
+                builder.RequireRole(RoleName.Administrator);
+            });
+        });
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
@@ -100,12 +124,14 @@ public class Program
 
         app.UseRouting();
 
-        app.UseAuthorization();
-
         app.UseAuthentication();
+
+        app.UseAuthorization();
 
         app.UseEndpoints(endpoints =>
         {
+            endpoints.MapControllers();
+
             endpoints.MapAreaControllerRoute(
                 name: "product",
                 pattern: "{controller}/{action=Index}/{id?}",
